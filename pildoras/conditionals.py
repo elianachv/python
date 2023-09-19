@@ -1,8 +1,10 @@
 """
 Class 10: Conditionals part 1
 Class 11: Conditionals part 2
+Class 12: Consitionals part 3
 Author: Eliana Chavez
 """
+
 
 def quiz(score):
     status = "none"
@@ -27,10 +29,22 @@ def validateAge(age):
         print("You're a kid")
 
 
+def checkAge(age):
+    # Python evaluates conditions by pairs starting from left to right
+    # 0 < age and age < 100
+    if 0 < age < 100:  # Age must be positive and less than 100
+        return True
+    return False
+
+
 def main():
 
     age = int(input("How old are you? "))
-    validateAge(age)
+
+    if checkAge(age):
+        validateAge(age)
+    else:
+        print("Invalid age")
 
     score = int(input("What was your exam score? "))
     print(quiz(score))
