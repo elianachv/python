@@ -3,6 +3,7 @@ Class 14: Loops part 1: For basics
 Class 15: Loops part 2: For
 Class 16: Loops part 3: range and print tips
 Class 17: Loops part 4: While
+Class 18: Lopps part 5: continue, pass and else
 Author: Eliana Chavez
 """
 import math
@@ -62,7 +63,7 @@ def printEmailValidation(email):
         print(email, "is invalid")
 
 
-def executeEmailExample():
+def executeEmailExampleFor():
 
     print("Email validation sample results")
     for email in ("test@gmail.com", "testgmail.com", "test@gamail", "test"):
@@ -89,7 +90,7 @@ def printWhileSamples():
     print("Thanks")
 
 
-def calculateSqureRoot():
+def calculateSqureRootWhile():
     attempt = 0
     number = int(input("Digit number: "))
 
@@ -108,12 +109,62 @@ def calculateSqureRoot():
         solution = math.sqrt(number)
         print(f"square root of {number} is {solution}")
 
+# continue: ignore the rest of the loop code and jump to the next iteration
+# pass: return null, do not execute the loop example: defining classes
+# else: execute something if for ends completely
+
+
+def continueExamples():
+    print("\nPrinting letters example:")
+    for letter in "python":
+
+        if letter == "h":  # h won't be printed
+            continue
+
+        print("Letter:", letter)
+
+    print("\nCounting letters example:")
+    count = 0
+    phrase = "This is a long test"
+    for letter in phrase:
+
+        if letter == " ":  # spaces wont be counted
+            continue
+
+        count += 1
+
+    print("Whole size:", len(phrase))
+    print("Char count:", count)
+
+
+def passExample():
+    # Wait till user press ctrl + C
+    while True:
+        pass
+
+
+def elseExample():
+    email = input("What's your email? ")
+
+    for i in email:
+        if i == "@":
+            at = True
+            break
+
+    else: 
+        at = False
+
+    print("@ is present: ", at)
+
 
 def main():
     # printForSamples()
-    # executeEmailExample()
+    # executeEmailExampleFor()
     # printWhileSamples()
-    calculateSqureRoot()
+    # calculateSqureRootWhile()
+    # continueExamples()
+    # passExample()
+    elseExample()
 
 
 main()
