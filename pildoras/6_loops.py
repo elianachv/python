@@ -1,15 +1,24 @@
 """
 Class 14: Loops part 1: For basics
 Class 15: Loops part 2: For
+Class 16: range and print tips
 Author: Eliana Chavez
 """
 
 # Determined loops : for
 # range(n) could be a list, a tuple, a string, etc
+# Default range(stop)
 
 print("Printing 5 times Hello world")
 for i in range(5):
     print("Hello world!", sep="", end=" ")
+
+print("\n")
+
+# range(start,stop,step)
+print("Printing 2 times Hello world using range")
+for i in range(1, 3, 1):
+    print(f"Hello world! {i}")
 
 print("\n")
 
