@@ -2,6 +2,7 @@
 Class 26: Class concepts
 Class 27 - 28: Constructors, encapsulation
 Class 29 - 31: Inheritance 
+Class 32: Polymorphism
 Author: Eliana Chavez
 """
 # POO basics example
@@ -158,17 +159,82 @@ class Vehicle():
 
 
 class Motorcycle(Vehicle):
-    pass
+    caballito = ""
+
+    # Sprecific method for vehicle motorcycle
+    def doCaballito(self):
+        self.caballito = "Doing caballito"
+
+    # Overwriting method getStatus
+    def info(self):
+        return super().info() + f"""
+            Caballito: {self.caballito}
+        """
+
+
+class Van(Vehicle):
+
+    def __init__(self, trademark, model, wheels):
+        super().__init__(trademark, model, wheels)
+        self.charged = False
+
+    def charge(self, charge):
+        if self.charged and charge:
+            return "Van is already charged"
+        elif not self.charged and charge:
+            self.charge = True
+            return "Van was charged succesfully"
+        elif not self.charged and not charge:
+            return "Van is not charged"
+        else:
+            self.charged = False
+            return "Van was uncharged succesfully"
+
+
+class ElectricVehicle():
+
+    def __init__(self, autonomy):
+        self.autonomy = autonomy
+        self.charging = False
+
+    def chargeEnergy(self):
+        self.charging = True
+
+# Establishing multiple inheritance
+# The object will inherit the constructor of the first class we declare
+
+
+class ElectricBike(Vehicle, ElectricVehicle):
+
+    def __init__(self, trademark, model, wheels, autonomy):
+        Vehicle.__init__(self, trademark, model, wheels)
+        ElectricVehicle.__init__(self, autonomy)
+
+    def info(self):
+        return super().info() + "Autonomy: " + str(self.autonomy)
 
 
 def inheritanceExample():
     motorcycle1 = Motorcycle("Honda", "CBR", 2)
     print(motorcycle1.info())
+    motorcycle1.doCaballito()
+    print(motorcycle1.info())
+
+    van1 = Van("Chevrolet", "R405", 4)
+    print(van1.info())
+    print(van1.charge(True))
+
+
+def multipleInheritanceExample():
+    electricBike = ElectricBike("EB", "124334", 2, 100)
+    electricBike.chargeEnergy()
+    print(electricBike.info())
 
 
 def main():
     # pooExample()
-    inheritanceExample()
+    # inheritanceExample()
+    multipleInheritanceExample()
 
 
 main()
