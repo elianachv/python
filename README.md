@@ -2,11 +2,11 @@
 
 ```python
  def hello():
-		if (python_lover == True):
-		    print("Hello pythonist <3 !")
-        print("Welcome to the journey")
-		else:
-			print("Reconsider")
+	if (python_lover == True):
+		print("Hello pythonist <3 !")
+    print("Welcome to the journey")
+	else:
+		print("Reconsider")
 
  hello()
 ```
